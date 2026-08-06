@@ -183,6 +183,45 @@
   }
   .signature-clip svg{ width:100%; height:auto; display:block; }
 
+
+
+  .signature-clip{
+  position: relative;
+}
+
+.signature-clip .sig-base{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+}
+
+.signature-clip .sig-shine{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    #a9805a 0%, #f6e9d3 25%, #cea484 50%, #f6e9d3 75%, #a9805a 100%);
+  background-size: 250% 100%;
+  -webkit-mask-image: url('logo_png_gold.png');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+  mask-image: url('logo_png_gold.png');
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  animation: sigGoldFlow 6s ease-in-out infinite;
+}
+
+@keyframes sigGoldFlow{
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
   /* ---------- social icons ---------- */
   .social-row{
     display:flex; gap:11px; justify-content:center;
@@ -286,8 +325,9 @@
 
         <div class="signature-wrap">
           <div class="signature-clip">
-            <img src="logo_png_gold.png" alt="Frances Okey Signature" style="width:100%;height:100%;object-fit:contain;">
-          </div>
+  <img src="logo_png_gold.png" alt="Frances Okey Signature" class="sig-base">
+  <div class="sig-shine"></div>
+</div>
         </div>
 
         <div class="social-row">
